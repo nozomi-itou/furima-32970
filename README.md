@@ -30,13 +30,13 @@
 | status_id   | integer    | null: false                    |
 | postage_id  | integer    | null: false                    |
 | area_id     | integer    | null: false                    |
-| days_id     | integer    | null: false                    |
+| day_id     | integer    | null: false                    |
 | price       | integer    | null: false                    |
 | user        | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :orders
+- has_one :order
 
 
 
@@ -44,7 +44,7 @@
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | post_code_id    | integer    | null: false                    |
-| prefecture_id   | integer    | null: false                    |
+| area_id         | integer    | null: false                    |
 | city            | string     | null: false                    |
 | address         | string     | null: false                    |
 | building_name   | string     |                                |
@@ -52,7 +52,7 @@
 | order           | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :orders
+- belongs_to :order
 
 
 
