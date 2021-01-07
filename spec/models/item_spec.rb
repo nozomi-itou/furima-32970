@@ -64,31 +64,31 @@ RSpec.describe Item, type: :model do
 
 
       it "カテゴリー情報を(1以外)選択しないと登録できない" do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
       it "商品の状態についての情報を(1以外)選択しないと登録できない" do
-        @item.status_id = "1"
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
 
       it "配送料負担についての情報を(1以外)選択しないと登録できない" do
-        @item.postage_id = "1"
+        @item.postage_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage must be other than 1")
       end
 
       it "発送元の情報を(1以外)選択しないと登録できない" do
-        @item.area_id = "1"
+        @item.area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Area must be other than 1")
       end
 
       it "発送までの日数を(1以外)選択しないと登録できない" do
-        @item.day_id = "1"
+        @item.day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Day must be other than 1")
       end
