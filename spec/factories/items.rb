@@ -8,7 +8,6 @@ FactoryBot.define do
     area_id {2}
     day_id {2}
     price {1000}
-    image {Faker::Lorem.sentence}
 
     association :user 
     
