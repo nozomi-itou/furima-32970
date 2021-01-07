@@ -130,7 +130,7 @@
       <% if @items[0] != nil %>
         <% @items.each do |item| %>
       <li class='list'>
-        <%= link_to "#" do %><%# "#"には商品詳細に飛べるPREFIXを記述する %>
+        <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
