@@ -24,6 +24,37 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Details can't be blank")
     end
 
+    it "カテゴリー情報がないと登録できない" do
+      @item.category_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category can't be blank")
+    end
+
+    it "商品の状態についての情報がないと登録できない" do
+      @item.status_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Status can't be blank")
+    end
+
+    it "配送料負担についての情報がないと登録できない" do
+      @item.postage_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Postage can't be blank")
+    end
+
+    it "発送元の情報がないと登録できない" do
+      @item.area_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Area can't be blank")
+    end
+
+    it "発送までの日数がないと登録できない" do
+      @item.day_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Day can't be blank")
+    end
+
+
     it "カテゴリー情報を(1以外)選択しないと登録できない" do
       @item.category_id = "1"
       @item.valid?
@@ -63,7 +94,7 @@ RSpec.describe Item, type: :model do
     it "価格の範囲が、¥300未満だと登録できない" do
       @item.price = "299"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price must be greater than 300")
+      expect(@item.errors.full_messages).to include("Price must be greater than 299")
     end
 
     it "価格の範囲が、¥10,000,000以上だと登録できない" do
