@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe OrderCustomer, type: :model do
   before do
-    @order_customer = FactoryBot.build(:order_customer)
+    @user = FactpryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @order_customer = FactoryBot.build(:order_customer, item_id: @item.id, user_id: @user.id)
   end
 
   describe '購入情報の保存' do
