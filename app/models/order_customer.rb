@@ -7,12 +7,14 @@ class OrderCustomer
     validates :post_code_id, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)" }
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters." }
     validates :address
-    validates :phone_number, numericality: { with: /\A[0-9]\z/, message: "is invalid." }
+    validates :phone_number, numericality: { with: /\A[0-9]\z/, message: "is invalid." }, length: { maximum: 11 }
+    validates :token
+    validates :user_id
+    validates :item_id
   end
 
   validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
 
-  validates :token, presence: true
 
   def save
     
