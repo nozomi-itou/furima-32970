@@ -5,9 +5,6 @@ class OrdersController < ApplicationController
   
   def index
     @order_customer = OrderCustomer.new
-    if current_user == @item.user
-      redirect_to root_path
-    end
   end
   
   def create
@@ -43,7 +40,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    if @item.order.present?
+    if @item.order.present? || current_user == @item.user
       redirect_to root_path
     end 
   end
